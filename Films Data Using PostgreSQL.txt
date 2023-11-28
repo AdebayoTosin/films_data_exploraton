@@ -1,0 +1,123 @@
+Project Title: Exploratory Data Analysis on Film Data Using PostgreSQL
+
+Project Description:
+In this project, I will apply my SQL skills to perform exploratory data analysis on the "inidata" database, 
+which contains information about films, people, reviews, and roles. The project will focus on retrieving, filtering, 
+and analyzing data to answer real-life business questions related to the film industry.
+
+Project Objectives:
+Apply SQL queries to retrieve and analyze data from the "inidata" database.
+Gain practical experience in using SQL for data analysis.
+Answer real-life business questions using SQL.
+Present findings in a clear and organized manner.
+
+
+-- the top 10 highest-grossing films in the database, and when were they released
+
+SELECT gross, release_year
+FROM films
+WHERE gross is not null
+ORDER BY gross DESC
+LIMIT 10
+
+--How many films in the database were released in each country, and what are the top five countries?
+
+SELECT COUNT(title), Country
+FROM films
+GROUP BY country
+ORDER BY count DESC
+LIMIT 5
+
+--How many films are available in each language, and what are the top three languages represented
+
+SELECT COUNT(title), language
+FROM films
+GROUP BY language
+ORDER BY count DESC
+LIMIT 3
+
+--Which country has made the highest profit from movies?
+SELECT 
+    (gross - budget) AS profit, 
+FROM films
+WHERE (gross - budget) IS NOT NULL
+ORDER BY (gross - budget) 
+	
+--Which movie made the highest profit in the 21st century
+
+SELECT 
+    title,(gross - budget) AS profit, release_year
+FROM films
+WHERE (gross - budget) IS NOT NULL
+	AND release_year >1999
+ORDER BY profit DESC
+
+--How many people in the database are still alive (based on birthdate and death date)
+
+SELECT (COUNT(birthdate) - COUNT(deathdate)) as people_alive
+FROM people
+
+--Which year has the highest number of movie releases
+
+SELECT release_year,COUNT(title)
+FROM films
+GROUP BY release_year
+ORDER BY count(title) DESC
+LIMIT 1
+
+Determine the top 10 people with the most roles in the database.
+
+SELECT COUNT(role), person_id
+FROM people AS p
+LEFT JOIN roles AS r
+	ON p.id = r.person_id
+GROUP BY person_id
+ORDER BY COUNT DESC
+LIMIT 10
+
+--Who are the top 10 actors or directors with the most roles in the database
+
+SELECT COUNT(role), name
+FROM people AS p
+LEFT JOIN roles AS r
+	ON p.id = r.person_id
+GROUP BY name
+ORDER BY COUNT DESC
+LIMIT 10
+
+Identify how many people in the database are still alive.
+
+select COUNT(birthdate) - COUNT(deathdate)
+from people
+
+--Calculate the average number of user and critic reviews for films.
+
+SELECT film_id, AVG(num_user) AS average_num_user,AVG(num_critic) AS average_num_critic
+FROM reviews
+GROUP BY film_id
+
+--Identify films with the highest number of user and critic reviews
+
+SELECT title,film_id, num_user,num_critic
+FROM reviews
+LEFT JOIN films
+ON reviews.film_id=films.id
+WHERE num_user IS NOT NULL
+ORDER BY num_user DESC,num_critic DESC
+
+--Which films have the most Facebook likes, and is there a correlation with their IMDb scores
+
+SELECT facebook_likes,imdb_score
+FROM reviews
+WHERE facebook_likes  <>0
+ORDER BY facebook_likes
+
+
+
+
+
+
+
+
+
+
