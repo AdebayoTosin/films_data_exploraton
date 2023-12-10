@@ -34,6 +34,8 @@ and analyzing data to answer real-life business questions related to the film in
 
   ## Findings and Summay
 
+  ![image](https://github.com/AdebayoTosin/films_data_exploraton/blob/main/film_data_viz.png)
+
   **Data Limitation** THIS MOVIE DATASET CONTAINS MOVIE RECORD FROM YEAR 1916 – 2016
   
 - YEAR 2009 HAS THE HIGHEST NUMBER OF MOVIE RELEASED(260) AND SECOND HIGHEST GROSS(760505847)
