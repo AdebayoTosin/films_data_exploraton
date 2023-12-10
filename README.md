@@ -16,7 +16,8 @@ and analyzing data to answer real-life business questions related to the film in
 **NOTE:**
 
 - **FILMS Data using PostgreSQL.txt File** contains my Query codes for this project [link](https://github.com/AdebayoTosin/films_data_exploraton/blob/main/Films%20Data%20Using%20PostgreSQL.txt)
-- **films_data_presentation File** is a PDF file that contains the original screenshots of my queries, results and Analysis
+- **films_data_presentation File** is a PDF file that contains the original screenshots of my queries, results and Analysis [link](https://github.com/AdebayoTosin/films_data_exploraton/blob/main/films_data_presentation)
+  
 
 ## Project Objectives:
 - Apply SQL queries and PowerBI to retrieve and analyze data from the "inidata" database.
