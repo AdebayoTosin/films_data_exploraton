@@ -9,7 +9,7 @@ which contains the following tables; films, people, reviews, and roles.
 The project will focus on retrieving, filtering, 
 and analyzing data to answer real-life business questions related to the film industry.
 
-**Disclaimer** This is not a real company as wwe know inidata base is complile by DAHEL TECH for learning purposes
+**Disclaimer** This is not a real company as we know inidata base is complile by DAHEL TECH for learning purposes
 
 ![image](https://github.com/AdebayoTosin/films_data_exploraton/blob/main/inidata_set.png)
 
